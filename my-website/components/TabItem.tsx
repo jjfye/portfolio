@@ -25,12 +25,12 @@ const TabItem: React.FC<SidebarItemProps> = ({
       text-md
       font-medium
       cursor-pointer
-      hover:text-red-500
+      hover:text-green-300
       transition
       text-neutral-400
       py-1
       `,
-      active && "text-black")}
+      active && "text-green-300")}
     >
       <p className="truncate w-full">{label}</p>
     </Link>
