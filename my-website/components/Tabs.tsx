@@ -35,7 +35,7 @@ const Tabs: React.FC<TabsProps> = ({
   ], [pathname]);
 
   return (
-    <div className="flex w-full">
+    <div className="flex flex-col w-full h-screen">
       <div
         className="
           flex
@@ -47,36 +47,36 @@ const Tabs: React.FC<TabsProps> = ({
           px-10
           text-4xl
           text-black
+          fixed
           font-semibold
           "
         >
           <Link href={"/"}>
-        JJFYE
-        </Link>
+            JJFYE
+          </Link>
+          <div
+            className="
+              flex
+              flex-row
+              gap-x-10
+              w-full
+              text-xl
+            text-black
+              justify-end
+            "
+          >
+            {routes.map((item) => (
+              <TabItem
+                key={item.label}
+                {...item}
+              />
+            ))}
+          </div>
+        </div>
+        <main className="flex w-full h-full py-10 items-center justify-center text-5xl">
+          {children}
+        </main>
       </div>
-      <div
-        className="
-          flex
-          flex-row
-          gap-x-10
-          bg-slate-100
-          w-full
-          h-[70px]
-          p-4
-          px-10
-          text-xl
-          text-black
-          justify-end
-          "
-        >
-      {routes.map((item) => (
-        <TabItem
-          key={item.label}
-          {...item}
-        />
-      ))}
-      </div>
-    </div>
   )
 }
 
