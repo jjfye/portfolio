@@ -40,18 +40,18 @@ const Tabs: React.FC<TabsProps> = ({
         className="
           flex
           flex-row
-          bg-slate-100
+          bg-black
           w-full
           h-[70px]
           p-4
           px-10
           text-4xl
-          text-black
+          text-neutral-400
           fixed
           font-semibold
           "
         >
-          <Link href={"/"}>
+          <Link href={"/"} className="hover:text-green-300 transition">
             JJFYE
           </Link>
           <div
@@ -61,7 +61,6 @@ const Tabs: React.FC<TabsProps> = ({
               gap-x-10
               w-full
               text-xl
-            text-black
               justify-end
             "
           >
