@@ -7,7 +7,22 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        "moving-arrow": "moving-arrow 0.5s infinite",
+      },
+      
+      keyframes: {
+        "moving-arrow": {
+          "0%, 100%": {
+            transform: "translateX(5px) translateY(5px)",
+          },
+          "50%": {
+            transform: "translateX(0) translateY(0)",
+          },
+        },
+      }
+    },
   },
   plugins: [],
 }
