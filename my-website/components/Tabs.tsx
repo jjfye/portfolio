@@ -56,8 +56,8 @@ const Tabs: React.FC<TabsProps> = ({
           </Link>
           <div
             className="
-              flex
-              flex-row
+              hidden
+              md:flex
               gap-x-10
               w-full
               text-xl
@@ -72,7 +72,7 @@ const Tabs: React.FC<TabsProps> = ({
             ))}
           </div>
         </div>
-        <main className="flex w-full h-full py-10 items-center justify-center text-5xl">
+        <main className="flex w-full h-full py-10 items-center justify-center text-5xl overflow-hidden">
           {children}
         </main>
       </div>
