@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       animation: {
         "moving-arrow": "moving-arrow 0.5s infinite",
+        "moving-dog": "moving-dog 30s linear infinite",
       },
       
       keyframes: {
@@ -21,6 +22,14 @@ const config: Config = {
             transform: "translateX(0) translateY(0)",
           },
         },
+        "moving-dog": {
+          "0%": {
+            transform: "translateX(90%)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
+          },
       }
     },
   },
