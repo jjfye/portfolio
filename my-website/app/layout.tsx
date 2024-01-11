@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import { Figtree } from 'next/font/google'
 import './globals.css'
 import Tabs from '@/components/Tabs'
 
-const font = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'JJFYE',
@@ -17,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body>
         <Tabs>
           {children}
         </Tabs>
