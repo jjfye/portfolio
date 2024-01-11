@@ -45,13 +45,13 @@ const Tabs: React.FC<TabsProps> = ({
           h-[70px]
           p-4
           px-10
-          text-4xl
           text-neutral-400
           fixed
           font-semibold
+          text-xl
           "
         >
-          <Link href={"/"} className="hover:text-green-300 transition">
+          <Link href={"/"} className="hover:text-green-300 transition text-2xl">
             JJFYE
           </Link>
           <div
@@ -60,7 +60,6 @@ const Tabs: React.FC<TabsProps> = ({
               md:flex
               gap-x-10
               w-full
-              text-xl
               justify-end
             "
           >
@@ -72,7 +71,7 @@ const Tabs: React.FC<TabsProps> = ({
             ))}
           </div>
         </div>
-        <main className="flex w-full h-full py-10 items-center justify-center text-5xl overflow-hidden">
+        <main className="flex w-full h-full py-10 items-center justify-center overflow-hidden">
           {children}
         </main>
       </div>
