@@ -6,13 +6,11 @@ export default function Home() {
       <div className='text-center text-3xl'>
         Hi I'm Jason.
         <div className="py-4">
-          <Link href="/about">
-            <div className='group hover:text-green-300 transition text-xl'>
+          <Link href="/about" className="group hover:text-green-300 transition text-xl">
               Learn more
-              <span className="arrow rotate-[135deg] absolute top-[50%]transform translate-y-[8px] translate-x-[14px] group-hover">
+              <span className="arrow rotate-[135deg] absolute top-[50%]transform translate-y-[17px] translate-x-[14px] group-hover">
                 <span className="block w-3 h-3 border-r-2 border-b-2 border-green-300 animate-moving-arrow"></span>
               </span>
-            </div>
           </Link>
         </div>
       </div>
