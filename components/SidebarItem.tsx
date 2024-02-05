@@ -12,15 +12,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   active,
   onClick
 }) => {
-
-  const handleClick = () => {
-    // Call the onClick function when the button is clicked
-    onClick();
-  };
-
+  
   return (
     <button
-      onClick={handleClick}
+      onClick={onClick}
       className={twMerge(`
       flex
       flex-row
@@ -31,7 +26,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       text-md
       font-medium
       cursor-pointer
-    bg-neutral-900
+      bg-neutral-900
       rounded-lg
       hover:text-green-300
       transition
