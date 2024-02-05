@@ -10,7 +10,6 @@ import { twMerge } from "tailwind-merge";
 
 interface Route {
   label: string;
-  active: boolean;
   href: string;
   desc: string;
   imageUrl: string;
@@ -27,71 +26,35 @@ const Sidebar = () => {
   const routes: Route[] = useMemo(() => [
     {
       label: "Spotify Clone",
-      active: pathname === "/search",
       href: "https://github.com/jjfye/Sbotify",
       desc: "A clone of Spotify built using React.",
       imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
       label: "Strava Bot",
-      active: pathname === "/search",
       href: "https://github.com/jjfye/runBot",
       desc: "A bot for Strava to automate activities.",
       imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
-    },
-    {
-      label: "Spotify Clone",
-      active: pathname === "/search",
-      href: "https://github.com/jjfye/Sbotify",
+    },    {
+      label: "Tournament Generator",
+      href: "https://github.com/jjfye/Tournment_Game_Generator",
       desc: "A clone of Spotify built using React.",
       imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Strava Bot",
-      active: pathname === "/search",
-      href: "https://github.com/jjfye/runBot",
+      label: "Rubik's Cube Solver",
+      href: "https://github.com/jjfye/Rubik-s-Cube-Solver",
       desc: "A bot for Strava to automate activities.",
       imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
-    },
-    {
-      label: "Spotify Clone",
-      active: pathname === "/search",
-      href: "https://github.com/jjfye/Sbotify",
+    },    {
+      label: "Mobile Chat",
+      href: "https://github.com/jjfye/Mobile-Chat-App",
       desc: "A clone of Spotify built using React.",
       imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Strava Bot",
-      active: pathname === "/search",
-      href: "https://github.com/jjfye/runBot",
-      desc: "A bot for Strava to automate activities.",
-      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
-    },
-    {
-      label: "Spotify Clone",
-      active: pathname === "/search",
-      href: "https://github.com/jjfye/Sbotify",
-      desc: "A clone of Spotify built using React.",
-      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
-    },
-    {
-      label: "Strava Bot",
-      active: pathname === "/search",
-      href: "https://github.com/jjfye/runBot",
-      desc: "A bot for Strava to automate activities.",
-      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
-    },
-    {
-      label: "Spotify Clone",
-      active: pathname === "/search",
-      href: "https://github.com/jjfye/Sbotify",
-      desc: "A clone of Spotify built using React.",
-      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
-    },
-    {
-      label: "Strava Bot",
-      active: pathname === "/search",
-      href: "https://github.com/jjfye/runBot",
+      label: "Discord Bot",
+      href: "https://github.com/jjfye/Discord-Bot",
       desc: "A bot for Strava to automate activities.",
       imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
@@ -129,13 +92,14 @@ const Sidebar = () => {
               <SidebarItem
                 key={item.label}
                 {...item}
+                active={selectedItem?.label === item.label}
                 onClick={() => handleSelectItem(item)}
               />
             ))}
           </div>
         </Box>
       </div>
-      <main className="w-full h-full">
+      <main className="w-full h-full px-4">
         <ContentDisplay selectedItem={selectedItem} routes={routes} />
       </main>
     </div>
