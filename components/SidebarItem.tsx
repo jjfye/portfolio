@@ -5,17 +5,22 @@ import { twMerge } from "tailwind-merge";
 interface SidebarItemProps {
   label: string;
   active?: boolean;
-  href: string;
-}
+  onClick: () => void;}
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
   label,
   active,
-  href
+  onClick
 }) => {
+
+  const handleClick = () => {
+    // Call the onClick function when the button is clicked
+    onClick();
+  };
+
   return (
-    <Link
-      href={href}
+    <button
+      onClick={handleClick}
       className={twMerge(`
       flex
       flex-row
@@ -42,7 +47,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       <span className="arrow rotate-[135deg] absolute top-[50%] left-full transform -translate-y-1/2 translate-x-[12px] opacity-0 group-hover:opacity-100">
         <span className="block w-3 h-3 border-r-2 border-b-2 border-green-300 animate-moving-arrow"></span>
       </span>
-    </Link>
+    </button>
   );
 }
 
