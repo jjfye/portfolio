@@ -1,73 +1,99 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useMemo } from "react";
-import { HiHome } from "react-icons/hi";
-import { BiSearch } from "react-icons/bi"
+import { useMemo, useState } from "react";
+import ContentDisplay from "./ContentDisplay";
 import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import { twMerge } from "tailwind-merge";
 
 
+interface Route {
+  label: string;
+  active: boolean;
+  href: string;
+  desc: string;
+  imageUrl: string;
+}
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const [selectedItem, setSelectedItem] = useState<Route | null>(null);
 
-  const routes = useMemo(() => [
+  const handleSelectItem = (item: Route) => {
+    setSelectedItem(item);
+  };
+
+  const routes: Route[] = useMemo(() => [
     {
       label: "Spotify Clone",
       active: pathname === "/search",
       href: "https://github.com/jjfye/Sbotify",
+      desc: "A clone of Spotify built using React.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
       label: "Strava Bot",
       active: pathname === "/search",
       href: "https://github.com/jjfye/runBot",
+      desc: "A bot for Strava to automate activities.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Rubik's Cube Solver",
+      label: "Spotify Clone",
       active: pathname === "/search",
-      href: "https://github.com/jjfye/Rubik-s-Cube-Solver",
+      href: "https://github.com/jjfye/Sbotify",
+      desc: "A clone of Spotify built using React.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Discord Bot",
+      label: "Strava Bot",
       active: pathname === "/search",
-      href: "/search",
+      href: "https://github.com/jjfye/runBot",
+      desc: "A bot for Strava to automate activities.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Mobile Chat App",
+      label: "Spotify Clone",
       active: pathname === "/search",
-      href: "/search",
+      href: "https://github.com/jjfye/Sbotify",
+      desc: "A clone of Spotify built using React.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Tournament Generator",
+      label: "Strava Bot",
       active: pathname === "/search",
-      href: "/",
+      href: "https://github.com/jjfye/runBot",
+      desc: "A bot for Strava to automate activities.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Pong",
+      label: "Spotify Clone",
       active: pathname === "/search",
-      href: "/search",
+      href: "https://github.com/jjfye/Sbotify",
+      desc: "A clone of Spotify built using React.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Book Shop",
+      label: "Strava Bot",
       active: pathname === "/search",
-      href: "/search",
+      href: "https://github.com/jjfye/runBot",
+      desc: "A bot for Strava to automate activities.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "2D Game",
+      label: "Spotify Clone",
       active: pathname === "/search",
-      href: "/search",
+      href: "https://github.com/jjfye/Sbotify",
+      desc: "A clone of Spotify built using React.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
     {
-      label: "Flappy Bird",
+      label: "Strava Bot",
       active: pathname === "/search",
-      href: "/search",
-    },
-    {
-      label: "Rhythm Game",
-      active: pathname === "/search",
-      href: "/search",
+      href: "https://github.com/jjfye/runBot",
+      desc: "A bot for Strava to automate activities.",
+      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
     },
   ], [pathname]);
 
@@ -86,7 +112,6 @@ const Sidebar = () => {
             bg-black
             h-[500px]
             w-[450px]
-            p-2
             overflow-y-scroll
             no-scrollbar
             "
@@ -97,7 +122,6 @@ const Sidebar = () => {
           flex-col
           gap-y-2
           px-5
-          py-4
           text-center
           "
           >
@@ -105,13 +129,14 @@ const Sidebar = () => {
               <SidebarItem
                 key={item.label}
                 {...item}
+                onClick={() => handleSelectItem(item)}
               />
             ))}
-
           </div>
         </Box>
       </div>
-      <main className="h-full flex-1 overflow-y-auto py-2">
+      <main className="w-full h-full">
+        <ContentDisplay selectedItem={selectedItem} routes={routes} />
       </main>
     </div>
   );
