@@ -27,8 +27,8 @@ const Sidebar = () => {
     {
       label: "Spotify Clone",
       href: "https://github.com/jjfye/Sbotify",
-      desc: "A clone of Spotify built using React.",
-      imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
+      desc: "A clone of Spotify built using React.A clone of Spotify built using React.A clone of Spotify built using React.A clone of Spotify built using React.A clone of Spotify built using React.A clone of Spotify built using React.A clone of Spotify built using React.",
+      imageUrl: "/images/spotify.jpeg", // Placeholder URL
     },
     {
       label: "Strava Bot",
@@ -69,6 +69,7 @@ const Sidebar = () => {
     )}>
       <div
         className="
+            hidden
             md:flex
             flex-col
             gap-y-2
@@ -83,8 +84,8 @@ const Sidebar = () => {
           <div className="
           flex
           flex-col
-          gap-y-2
-          px-5
+          gap-y-4
+          px-8
           text-center
           "
           >
@@ -99,7 +100,7 @@ const Sidebar = () => {
           </div>
         </Box>
       </div>
-      <main className="w-full h-full px-4">
+      <main className="w-full h-[500px] px-4">
         <ContentDisplay selectedItem={selectedItem} routes={routes} />
       </main>
     </div>
