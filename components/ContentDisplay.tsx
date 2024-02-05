@@ -16,8 +16,9 @@ interface ContentDisplayProps {
 const ContentDisplay: React.FC<ContentDisplayProps> = ({ selectedItem, routes }) => {
   if (!selectedItem) {
     return (
-    <div className="w-full h-[500px] bg-neutral-900 rounded-lg">
-    <div className="p-4">Please select an item from the sidebar</div></div>
+    <div className="w-full h-full bg-neutral-900 rounded-lg flex items-center justify-center">
+      <div className="p-4 text-center">Please select an item from the sidebar</div>
+    </div>
     )
     ;
   }
@@ -26,11 +27,11 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ selectedItem, routes })
   const { label, imageUrl, desc, href } = selectedItem;
 
   return (
-    <div className="w-full h-[500px] bg-neutral-900 rounded-lg">
-      <div className="p-4">
-        <h2 className="text-2xl font-bold">{label}</h2>
-        {imageUrl && <img src={imageUrl} alt={label} className="my-2 max-w-xs" />}
-        <p className="my-2">{desc}</p>
+    <div className="w-full h-full bg-neutral-900 rounded-lg ">
+      <div className="p-4 text-center">
+        <h2 className="text-2xl font-bold py-4">{label}</h2>
+        {imageUrl && <img src={imageUrl} alt={label} className="my-4 mx-auto w-1/3 rounded-lg" />}
+        <p className="py-4">{desc}</p>
         <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
           Learn more
         </a>
