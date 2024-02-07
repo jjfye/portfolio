@@ -45,7 +45,7 @@ const MobileDropdownMenu: React.FC = () => {
           </div>
         )}
       </div>
-      <main className="flex-grow p-4 z-0">
+      <main className="flex-grow pt-4 z-0">
         <ContentDisplay selectedItem={selectedItem} routes={routes} />
       </main>
     </div>
