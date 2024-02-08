@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from 'next/navigation';
 import React, { useMemo } from 'react'
+import { tabs } from '@/config/routes';
 import TabItem from './TabItem';
 import Link from 'next/link';
 interface TabsProps {
@@ -11,28 +12,10 @@ const Tabs: React.FC<TabsProps> = ({
 }) => {
   const pathname = usePathname();
 
-  const routes = useMemo(() => [
-    {
-      label: "Home",
-      active: pathname === "/",
-      href: "/",
-    },
-    {
-      label: "About",
-      active: pathname === "/about",
-      href: "/about",
-    },
-    {
-      label: "Projects",
-      active: pathname === "/projects",
-      href: "/projects",
-    },
-    {
-      label: "Contact",
-      active: pathname === "/contact",
-      href: "/contact",
-    }
-  ], [pathname]);
+  const activeRoutes = tabs.map(route => ({
+    ...route,
+    active: pathname === route.href,
+  }));
 
   return (
     <div className="flex flex-col w-full">
@@ -64,7 +47,7 @@ const Tabs: React.FC<TabsProps> = ({
               justify-end
             "
           >
-            {routes.map((item) => (
+            {activeRoutes.map((item) => (
               <TabItem
                 key={item.label}
                 {...item}

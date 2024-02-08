@@ -108,3 +108,27 @@ export const routes: Route[] = [
     imageUrl: "https://example.com/strava-bot-image-url.jpg", // Placeholder URL
   },
 ];
+
+export interface TabRoutes {
+  label: string;
+  href: string;
+}
+
+export const tabs: TabRoutes[] = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Projects",
+    href: "/projects",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  }
+];
