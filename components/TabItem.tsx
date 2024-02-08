@@ -6,34 +6,40 @@ interface SidebarItemProps {
   label: string;
   active?: boolean;
   href: string;
+  onClick?: () => void;
 }
 
 const TabItem: React.FC<SidebarItemProps> = ({
   label,
   active,
-  href
+  href,
+  onClick,
 }) => {
+
   return (
     <Link
-      href={href}
+      href={href} passHref
       className={twMerge(`
       flex
       flex-row
       h-full
       items-center
-      w-auto
+      w-fit
+      md:w-auto
       gap-x-4
+      p-2
+      md:p-0
       text-md
       font-medium
       cursor-pointer
       hover:text-green-300
       transition
       text-neutral-400
-      py-1
       relative
       group
       `,
       active && "text-green-300")}
+      onClick={onClick}
     >
       <p className="truncate w-full">{label}</p>
       

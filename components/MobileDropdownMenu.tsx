@@ -29,12 +29,12 @@ const MobileDropdownMenu: React.FC = () => {
           {selectedItem ? selectedItem.label : "Select a project"}
         </button>
         {isOpen && (
-          <div className="flex flex-col w-full max-h-[16rem] bg-neutral-900 text-white scroll-y overflow-y-auto absolute z-20"> {/* Adjusted here */}
+          <div className="flex flex-col w-full max-h-[16rem] rounded-b bg-neutral-900 text-white scroll-y overflow-y-auto absolute z-20"> {/* Adjusted here */}
             {routes.map((item) => (
               <button
                 key={item.label}
                 className={twMerge(`
-                  text-white p-4 w-full text-left hover:bg-gray-700`,
+                  text-white p-4 w-full text-left hover:text-green-300 hover:bg-gray-700 transition relative group`,
                   selectedItem?.label === item.label ? "text-green-300" : ""
                 )}
                 onClick={() => handleSelectItem(item)}
