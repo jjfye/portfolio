@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from 'next/navigation';
 import React, { useMemo } from 'react'
+import { tabs } from '@/config/routes';
 import TabItem from './TabItem';
 import Link from 'next/link';
 interface TabsProps {
@@ -11,31 +12,13 @@ const Tabs: React.FC<TabsProps> = ({
 }) => {
   const pathname = usePathname();
 
-  const routes = useMemo(() => [
-    {
-      label: "Home",
-      active: pathname === "/",
-      href: "/",
-    },
-    {
-      label: "About",
-      active: pathname === "/about",
-      href: "/about",
-    },
-    {
-      label: "Projects",
-      active: pathname === "/projects",
-      href: "/projects",
-    },
-    {
-      label: "Contact",
-      active: pathname === "/contact",
-      href: "/contact",
-    }
-  ], [pathname]);
+  const activeRoutes = tabs.map(route => ({
+    ...route,
+    active: pathname === route.href,
+  }));
 
   return (
-    <div className="flex flex-col w-full h-screen">
+    <div className="flex flex-col w-full">
       <div
         className="
           flex
@@ -49,6 +32,7 @@ const Tabs: React.FC<TabsProps> = ({
           fixed
           font-semibold
           text-xl
+          z-10
           "
         >
           <Link href={"/"} className="hover:text-green-300 transition text-2xl">
@@ -63,7 +47,7 @@ const Tabs: React.FC<TabsProps> = ({
               justify-end
             "
           >
-            {routes.map((item) => (
+            {activeRoutes.map((item) => (
               <TabItem
                 key={item.label}
                 {...item}
@@ -71,7 +55,7 @@ const Tabs: React.FC<TabsProps> = ({
             ))}
           </div>
         </div>
-        <main className="flex w-full h-full py-10 items-center justify-center overflow-hidden">
+        <main className="pt-[70px] flex w-full min-h-[calc(100vh-70px)] items-center justify-center overflow-hidden">
           {children}
         </main>
       </div>
