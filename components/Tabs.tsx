@@ -4,6 +4,7 @@ import React, { useMemo } from 'react'
 import { tabs } from '@/config/routes';
 import TabItem from './TabItem';
 import Link from 'next/link';
+import BurgerMenu from './BurgerMenu';
 interface TabsProps {
   children: React.ReactNode
 }
@@ -26,25 +27,26 @@ const Tabs: React.FC<TabsProps> = ({
           bg-black
           w-full
           h-[70px]
-          p-4
-          px-10
+          pl-4
+          md:px-8
           text-neutral-400
           fixed
           font-semibold
           text-xl
           z-10
+          justify-between
+          items-center
           "
         >
           <Link href={"/"} className="hover:text-green-300 transition text-2xl">
             JJFYE
           </Link>
+          <BurgerMenu />
           <div
             className="
               hidden
               md:flex
               gap-x-10
-              w-full
-              justify-end
             "
           >
             {activeRoutes.map((item) => (
