@@ -56,7 +56,7 @@ const Sidebar = () => {
           </div>
         </Box>
       </div>
-      <main className="hidden md:flex w-full h-[500px] px-4">
+      <main className="hidden md:flex w-full h-full px-4">
         <ContentDisplay selectedItem={selectedItem} routes={routes} />
       </main>
     </div>
