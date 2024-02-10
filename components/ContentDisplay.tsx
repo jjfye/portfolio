@@ -28,10 +28,10 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ selectedItem, routes })
 
   return (
     <div className="w-full h-full bg-neutral-900 rounded-lg ">
-      <div className="p-4 text-center">
+      <div className="p-4 py-8 text-center">
         <h2 className="text-2xl font-bold py-4">{label}</h2>
-        {imageUrl && <img src={imageUrl} alt={label} className="my-4 mx-auto w-1/3 rounded-lg" />}
-        <p className="text-xs md:p-6">{desc}</p>
+        {imageUrl && <img src={imageUrl} alt={label} className="my-4 mx-auto w-full md:w-[45%] rounded-lg" />}
+        <p className="text-xs pb-6 md:p-6">{desc}</p>
         <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
           Learn more
         </a>
